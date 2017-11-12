@@ -46,6 +46,7 @@
             </p>
             <input type="submit" value="Register!" />
         </form:form>
+        <a href="/login">Already a User</a>
     </div>
 </body>
 

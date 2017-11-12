@@ -21,7 +21,7 @@
             <div class="col-xs-6">
                 <h1>Login</h1>
                 <p>
-                    ${errorMessage} ${loginMessage}
+                    ${errorMessage} ${loginMessage} ${logoutMessage} ${registered}
                 </p>
                 <form method="POST" action="/login">
                     <p>
@@ -45,8 +45,8 @@
                 
                 <form:form method="POST" action="/registration" modelAttribute="user">
                     <p>
-                        <form:label path="email">Email:</form:label>
-                        <form:input path="email" />
+                        <form:label path="username">Email:</form:label>
+                        <form:input path="username" />
                     </p>
                     <p>
                         <form:label path="firstName">First Name:</form:label>

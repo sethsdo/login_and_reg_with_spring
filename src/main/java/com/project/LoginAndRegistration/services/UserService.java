@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.project.LoginAndRegistration.models.User;
 import com.project.LoginAndRegistration.repositories.RoleRepository;
 import com.project.LoginAndRegistration.repositories.UserRepository;
+import java.util.List;
 
 
 @Service
@@ -20,6 +21,15 @@ public class UserService {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
+
+    public List<User> allUsers() {
+        return userRepo.findAll();
+    }
+
+    public void destroyUser(Long id) {
+        userRepo.delete(id);
+    }
+
     public void saveWithUserRole(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setRoles(roleRepo.findByName("ROLE_USER"));
@@ -30,6 +40,10 @@ public class UserService {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setRoles(roleRepo.findByName("ROLE_ADMIN"));
         userRepo.save(user);
+    }
+
+    public User findUserById(Long id) {
+        return userRepo.findOne(id);
     }
 
     public User findByUsername(String username) {

@@ -50,6 +50,14 @@ pageEncoding="UTF-8"%>
                         <fmt:formatDate pattern = "yyyy-MM-dd" value="${currentUser.updatedAt}"/>
                     </td>
                 </tr>
+                <tr>
+                    <td>Status:</td>
+                    <td>
+                        <c:forEach items="${currentUser.roles}" var="role">
+                            <p>${role.name}</p>
+                        </c:forEach>
+                    </td>
+                </tr>
             </table>
         </div>
     
@@ -57,6 +65,11 @@ pageEncoding="UTF-8"%>
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
         <input type="submit" value="Logout!" />
     </form>
+    <c:forEach items="${currentUser.roles}" var="role">
+        <c:if test="${role.name.equals('ROLE_ADMIN')}">
+            <a href="/admin">Admin Dashboard</a>
+        </c:if>
+    </c:forEach>
     </div>
 </body>
 

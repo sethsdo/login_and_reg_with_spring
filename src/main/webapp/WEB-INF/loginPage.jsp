@@ -33,6 +33,7 @@
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
             <input type="submit" value="Login!" />
         </form>
+        <a href="/registration">Register</a>
     </div>
 </body>
 

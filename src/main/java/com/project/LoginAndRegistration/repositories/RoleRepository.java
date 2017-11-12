@@ -1,5 +1,6 @@
 package com.project.LoginAndRegistration.repositories;
 
+
 import com.project.LoginAndRegistration.models.Role;
 import java.util.List;
 import org.springframework.data.repository.CrudRepository;
